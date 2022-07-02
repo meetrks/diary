@@ -10,4 +10,4 @@ class ArticleList(generic.ListView):
 
 class ArticleDetail(generic.DetailView):
     model = Article
-    template_name = 'post_detail.html'
+    template_name = 'article_detail.html'

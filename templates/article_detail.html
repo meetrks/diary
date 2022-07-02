@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="">
+    <h2 ><a href="/{{ article.slug }}" class="article-title">{{ article.title }}</a></h2>
+    <span>{{article.published_on}} | {{article.creator}}</span>
+    <p>{{article.content|safe}}</p>
+</div>
+{%endblock%}

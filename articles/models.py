@@ -1,4 +1,4 @@
-import time
+import datetime
 
 from django.db import models
 from django.utils.text import slugify
@@ -47,9 +47,11 @@ class Article(BaseModel, DisplayID):
                                      related_name='articles_small_posters')
     main_poster = models.ForeignKey(ImageCollection, on_delete=models.SET_NULL, null=True, blank=True,
                                     related_name='articles_main_poster')
-    creator = models.ForeignKey(User, related_name='articles', on_delete=models.SET_NULL, null=True, blank=True,
+    creator = models.ForeignKey(User, related_name='articles_created', on_delete=models.SET_NULL, null=True, blank=True,
                                 editable=False)
-    published_time = models.PositiveIntegerField(default=0, editable=False)
+    publisher = models.ForeignKey(User, related_name='articles_published', on_delete=models.SET_NULL, null=True,
+                                  blank=True, editable=False)
+    published_on = models.DateField(null=True, blank=True, editable=False)
 
     class Meta:
         ordering = ('-created',)
@@ -57,8 +59,8 @@ class Article(BaseModel, DisplayID):
 
     def save(self, *args, **kwargs):
         self.slug = f"{slugify(self.title)}-{str(self.id)[:8]}"
-        if self.is_approved and not self.published_time:
-            self.published_time = int(time.time())
+        if self.is_approved and not self.published_on:
+            self.published_on = datetime.date.today()
         super().save(*args, **kwargs)
 
     def __str__(self):

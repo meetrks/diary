@@ -17,3 +17,12 @@ class ArticleAdmin(BaseAdmin):
     list_filter = ("is_approved",)
     search_fields = ['title', 'content']
     filter_horizontal = 'related_topics',
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        instance = form.instance
+        if not instance.creator:
+            instance.creator = request.user
+        if instance.is_approved and instance.publisher is None:
+            instance.publisher = request.user
+        instance.save()
