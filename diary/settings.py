@@ -46,7 +46,10 @@ SYSTEM_APPS = [
 ]
 
 CUSTOM_APPS = [
+    'core',
     'articles',
+    'iam',
+    'storage'
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS
@@ -62,6 +65,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'diary.urls'
+AUTH_USER_MODEL = 'iam.User'
 
 TEMPLATES = [
     {
@@ -135,6 +139,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+MEDIA_URL_IMAGES = STATIC_URL + 'media/'
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), 'media')
 
