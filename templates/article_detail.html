@@ -4,7 +4,13 @@
 
 <div class="">
     <h2 ><a href="/{{ article.slug }}" class="article-title">{{ article.title }}</a></h2>
+    <hr class="horizontal-line">
     <span>{{article.published_on}} | {{article.creator}}</span>
+    <span class="tag-list">
+        {% for i in article.tags.all %}
+            <span><a href="/tags/{{i.slug}}" class="text-decoration-none tag">{{i}}</a> </span>
+        {% endfor %}
+    </span>
     <p>{{article.content|safe}}</p>
 </div>
 {%endblock%}

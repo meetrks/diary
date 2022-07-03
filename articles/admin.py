@@ -16,7 +16,7 @@ class ArticleAdmin(BaseAdmin):
     list_display = 'display_id', 'title', 'is_approved', 'created'
     list_filter = ("is_approved",)
     search_fields = ['title', 'content']
-    filter_horizontal = 'related_topics',
+    filter_horizontal = 'tags',
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)

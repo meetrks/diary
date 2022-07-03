@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+{% for tag in tag_list %}
+    <li><a href="/tags/{{tag.slug}}" class="tag-title">{{tag}}</a> </li>
+{% endfor %}
+</ul>
+{%endblock%}

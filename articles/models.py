@@ -40,7 +40,7 @@ class Article(BaseModel, DisplayID):
     slug = models.SlugField(max_length=250, db_index=True, unique=True)
     content = models.TextField(null=True, blank=True)
     short_description = models.TextField(null=True, blank=True)
-    related_topics = models.ManyToManyField(Tag, related_name='related_articles', blank=True)
+    tags = models.ManyToManyField(Tag, related_name='related_articles', blank=True)
 
     keywords = models.TextField(null=True, blank=True)
     small_poster = models.ForeignKey(ImageCollection, on_delete=models.SET_NULL, null=True, blank=True,

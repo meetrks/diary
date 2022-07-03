@@ -66,6 +66,9 @@ color-home {
   background-color: #04AA6D;
 }
 @media screen and (max-width: 1200px) {
+    body{
+        font-size: x-large;
+    }
   .header-responsive {
     height: 80px;
     font-size: 35px;
@@ -115,4 +118,26 @@ color-home {
 }
 .article-list {
     border-bottom: 1px solid #ffffff1a;
+}
+.tag-title {
+    --border: 3px dotted var(--accent);
+    border-bottom: var(--border);
+    color: #04AA6D;
+    margin: 0 0 15px;
+    padding-bottom: 15px;
+    position: relative;
+    text-decoration: none;
+    line-height: 40px;
+}
+.horizontal-line{
+    border-top: 1px solid #04AA6D;
+    margin-bottom: 20px;
+}
+.tag-list{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tag-list .tag{
+    color: #8f9094;
 }
