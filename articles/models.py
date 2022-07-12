@@ -6,6 +6,7 @@ from django.utils.text import slugify
 from core.models import BaseModel, DisplayID
 from iam.models import User
 from storage.models import ImageCollection
+from django_quill.fields import QuillField
 
 STATUS = (
     (0, "Draft"),
@@ -38,7 +39,7 @@ class Article(BaseModel, DisplayID):
     PREFIX = "ART"
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, db_index=True, unique=True)
-    content = models.TextField(null=True, blank=True)
+    content = QuillField(null=True, blank=True)
     short_description = models.TextField(null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='related_articles', blank=True)
 

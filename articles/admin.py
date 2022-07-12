@@ -18,6 +18,8 @@ class ArticleAdmin(BaseAdmin):
     search_fields = ['title', 'content']
     filter_horizontal = 'tags',
 
+    change_form_template = 'admin/article_change_form.html'
+
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         instance = form.instance

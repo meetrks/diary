@@ -11,6 +11,6 @@
             <span><a href="/tags/{{i.slug}}" class="text-decoration-none tag">{{i}}</a> </span>
         {% endfor %}
     </span>
-    <p>{{article.content|safe}}</p>
+    <p>{{article.content.html|safe}}</p>
 </div>
 {%endblock%}

@@ -45,6 +45,10 @@ SYSTEM_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRD_PARTY_APPS = [
+    'django_quill'
+]
+
 CUSTOM_APPS = [
     'core',
     'articles',
@@ -52,7 +56,7 @@ CUSTOM_APPS = [
     'storage'
 ]
 
-INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS
+INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +88,29 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'diary.wsgi.application'
+
+QUILL_CONFIGS = {
+    'default': {
+        'theme': 'snow',
+        'modules': {
+            # 'syntax': True,
+            'imageResize': True,
+            'toolbar': [
+                [
+                    {'font': []},
+                    {'header': []},
+                    {'align': []},
+                    'bold', 'italic', 'underline', 'strike', 'blockquote',
+                    {'color': []},
+                    {'background': []},
+                ],
+                ['code-block', 'link', 'image'],
+                ['imageResize'],
+                ['clean'],
+            ]
+        }
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
