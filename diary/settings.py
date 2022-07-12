@@ -93,19 +93,19 @@ QUILL_CONFIGS = {
     'default': {
         'theme': 'snow',
         'modules': {
-            # 'syntax': True,
-            'imageResize': True,
+            "resize": {
+                "modules": ['Resize', 'DisplaySize'],
+            },
             'toolbar': [
                 [
                     {'font': []},
-                    {'header': []},
+                    {'header': [1, 2, 3, 4, 5, 6, False]},
                     {'align': []},
                     'bold', 'italic', 'underline', 'strike', 'blockquote',
                     {'color': []},
                     {'background': []},
                 ],
                 ['code-block', 'link', 'image'],
-                ['imageResize'],
                 ['clean'],
             ]
         }
