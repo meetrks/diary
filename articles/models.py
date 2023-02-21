@@ -52,7 +52,7 @@ class Article(BaseModel, DisplayID):
                                 editable=False)
     publisher = models.ForeignKey(User, related_name='articles_published', on_delete=models.SET_NULL, null=True,
                                   blank=True, editable=False)
-    published_on = models.DateField(null=True, blank=True, editable=False)
+    published_on = models.DateField(null=True, blank=True)
 
     class Meta:
         ordering = ('-created',)
