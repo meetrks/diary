@@ -12,7 +12,7 @@ class ArticleList(generic.ListView):
         }
         if self.request.user.is_authenticated and self.request.user.is_staff:
             is_approved_filter = {}
-        queryset = Article.objects.filter(**is_approved_filter).order_by('-created')
+        queryset = Article.objects.filter(**is_approved_filter)  # .order_by('-created')
         if self.kwargs.get("slug"):
             queryset = queryset.filter(tags__slug=self.kwargs.get("slug"))
         return queryset
