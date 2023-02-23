@@ -13,7 +13,7 @@ class TagAdmin(BaseAdmin):
 @admin.register(Article)
 class ArticleAdmin(BaseAdmin):
     exclude = 'display_id', 'slug'
-    list_display = 'display_id', 'title', 'is_approved', 'created'
+    list_display = 'display_id', 'title', 'is_approved', 'created', 'published_on'
     list_filter = ("is_approved",)
     search_fields = ['title', 'content']
     filter_horizontal = 'tags',

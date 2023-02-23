@@ -55,7 +55,7 @@ class Article(BaseModel, DisplayID):
     published_on = models.DateField(null=True, blank=True)
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('-published_on', '-created')
         unique_together = (('slug',),)
 
     def save(self, *args, **kwargs):
